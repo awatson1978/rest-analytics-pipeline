@@ -3,10 +3,22 @@
 //BrowserPolicy.content.allowDataUrlForAll();
 //BrowserPolicy.content.allowDataUrlForAll("http://localhost");
 
+initializeDatabase = false;
 
 Meteor.startup(function(){
+  if(RestStatistics.find().count() == 0){
+    RestStatistics.insert({
+      _id: 'configuration',
+      total_count: 0,
+      list_count: 0,
+      update_count: 0,
+      delete_count: 0,
+      get_count: 0,
+      insert_count: 0
+    });
+  }
 
-  if((Readings.find().count() == 0)) {
+  if((Readings.find().count() == 0) && initializeDatabase) {
     var data = [
       {
         "value": 68.8368,

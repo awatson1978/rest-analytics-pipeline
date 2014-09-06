@@ -15,4 +15,8 @@ Router.map(function(){
      Session.set('isOnListPage', false);
    }
  });
+ this.route("apiGetRoute", {
+   path: "/",
+   template: "mainPage"
+ });
 });

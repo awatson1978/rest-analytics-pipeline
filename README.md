@@ -1,16 +1,16 @@
-# sensor-analytics-pipeline
+# rest-analytics-pipeline
 
-Real-time analytics pipeline for sensors, including statistics writer, pub/sub, and D3 multibar visualization of daily stats.  
+Real-time analytics pipeline for sensors via a RESTful interface.  
 
 Installation
 ------------------------
 
 ````sh
 # Should be as simple as cloning the repository...  
-git clone https://github.com/grovelabs/sensor-analytics-pipeline.git
+git clone https://github.com/grovelabs/rest-analytics-pipeline.git
 
 # And then running it...
-cd sensor-analytics-pipeline
+cd rest-analytics-pipeline
 sudo meteor
 ````
 

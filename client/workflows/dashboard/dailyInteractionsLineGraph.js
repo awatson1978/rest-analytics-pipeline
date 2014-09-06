@@ -46,7 +46,8 @@ renderDailyInteractionsLineChart = function(){
 
         chart.xAxis
           .tickFormat(function(d) {
-            return d3.time.format('%x')(new Date(d));
+            return d3.time.format('%M:%S')(new Date(d));
+            //return d3.time.format('%H:%M')(new Date(d));
           });
 
         chart.yAxis

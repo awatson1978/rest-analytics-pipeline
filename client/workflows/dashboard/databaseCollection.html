@@ -1,0 +1,44 @@
+
+<template name="databaseCollection">
+  <div class="panel panel-default panel-success">
+    <div class="panel-heading">
+      Last 10 Readings
+    </div>
+    <div class="panel-body">
+      <table class="table table-bordered">
+        <thead class="bold">
+        <td>
+          ID
+        </td>
+        <td>
+          Timestamp
+        </td>
+        <td>
+          Value
+        </td>
+        <td>
+          Sensor Type
+        </td>
+        </thead>
+        <tbody>
+        {{#each readings }}
+        <tr>
+          <td width="25%">
+            {{ _id }}
+          </td>
+          <td width="25%">
+            {{ getCreatedAt }}
+          </td>
+          <td width="25%">
+            {{ value}}
+          </td>
+          <td width="25%">
+            {{ sensorType }}
+          </td>
+        </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>

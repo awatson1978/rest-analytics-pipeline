@@ -1,0 +1,20 @@
+<template name="navbarFooter">
+  <nav id="navbarFooterNav" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container-fluid">
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          {{#with getConfigurationRecord}}
+            <li><a href="#">total: {{getTotalCount}}</a></li>
+            <li><a href="#">find: {{getListCount}}</a></li>
+            <li><a href="#">findOne: {{getGetCount}}</a></li>
+            <li><a href="#">insert: {{getInsertCount}}</a></li>
+            <li><a href="#">update: {{getUpdateCount}}</a></li>
+            <li><a href="#">remove: {{getDeleteCount}}</a></li>
+          {{/with}}
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+</template>
