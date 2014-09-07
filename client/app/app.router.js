@@ -10,13 +10,6 @@ Router.configure({
 Router.map(function(){
  this.route('dashboardPageRoute', {
    path: '/',
-   template:"dashboardPage",
-   onAfterAction: function() {
-     Session.set('isOnListPage', false);
-   }
- });
- this.route("apiGetRoute", {
-   path: "/",
-   template: "mainPage"
+   template:"dashboardPage"
  });
 });

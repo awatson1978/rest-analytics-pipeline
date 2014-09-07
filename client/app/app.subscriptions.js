@@ -1,5 +1,6 @@
+Session.setDefault('groveId', false);
 
 Deps.autorun(function(){
-  Meteor.subscribe('readings');
-  Meteor.subscribe ('restStatistics');
+  Meteor.subscribe('readings', Session.get('groveId'));
+  Meteor.subscribe('restStatistics');
 });

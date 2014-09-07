@@ -1,26 +1,27 @@
 //==============================================================================
 // Grove Labs Readings API
 //
-// http://api.grove-labs.io/readings
-// http://api.grove-labs.io/reading/new
-// http://api.grove-labs.io/reading/:id
-// http://api.grove-labs.io/reading/delete/:id
-// http://api.grove-labs.io/reading/update/:id
+// http://api.grovelabs.io/readings
+// http://api.grovelabs.io/reading/new
+// http://api.grovelabs.io/reading/:id
+// http://api.grovelabs.io/reading/delete/:id
+// http://api.grovelabs.io/reading/update/:id
 
 
+debugLogging = false;
 
 Router.map(function () {
   this.route("listReadingRoute", {path: "/readings/",
     where: "server",
     action: function(){
-      console.log('################################################');
-      console.log(this.request.method);
-      console.log(this.request.headers);
-      console.log('this.params.id: ' + this.params.id);
+      debugLogging && console.log('################################################');
+      debugLogging && console.log(this.request.method);
+      debugLogging && console.log(this.request.headers);
+      debugLogging && console.log('this.params.id: ' + this.params.id);
 
-      console.log('------------------------------');
-      console.log(this.request.body);
-      console.log('------------------------------');
+      debugLogging && console.log('------------------------------');
+      debugLogging && console.log(this.request.body);
+      debugLogging && console.log('------------------------------');
 
       this.response.statusCode = 200;
       this.response.setHeader("Content-Type", "application/json");
@@ -47,13 +48,13 @@ Router.map(function () {
   this.route("newReadingRoute", {path: "/reading/new",
     where: "server",
     action: function(){
-      console.log('################################################');
-      console.log(this.request.method);
-      console.log(this.request.headers);
+      debugLogging && console.log('################################################');
+      debugLogging && console.log(this.request.method);
+      debugLogging && console.log(this.request.headers);
 
-      console.log('------------------------------');
-      console.log(this.request.body);
-      console.log('------------------------------');
+      debugLogging && console.log('------------------------------');
+      debugLogging && console.log(this.request.body);
+      debugLogging && console.log('------------------------------');
 
       this.response.statusCode = 200;
       this.response.setHeader("Content-Type", "application/json");
@@ -66,6 +67,11 @@ Router.map(function () {
           total_count: 1,
           insert_count: 1
         }});
+
+        // TODO: this is where we could add validation and testing
+        // this is where we enforce a schema if we want
+        // Grove.checkSchema(this.request.body);
+
         this.request.body.createdAt = new Date();
         this.response.end(JSON.stringify(
           Readings.insert(this.request.body)
@@ -81,14 +87,14 @@ Router.map(function () {
   this.route("getReadingRoute", {path: "/reading/:id",
     where: "server",
     action: function(){
-      console.log('################################################');
-      console.log(this.request.method);
-      console.log(this.request.headers);
-      console.log('this.params.id: ' + this.params.id);
+      debugLogging && console.log('################################################');
+      debugLogging && console.log(this.request.method);
+      debugLogging && console.log(this.request.headers);
+      debugLogging && console.log('this.params.id: ' + this.params.id);
 
-      console.log('------------------------------');
-      console.log(this.request.body);
-      console.log('------------------------------');
+      debugLogging && console.log('------------------------------');
+      debugLogging && console.log(this.request.body);
+      debugLogging && console.log('------------------------------');
 
       this.response.statusCode = 200;
       this.response.setHeader("Content-Type", "application/json");
@@ -115,14 +121,14 @@ Router.map(function () {
   this.route("deleteReadingRoute", {path: "/reading/delete/:id",
     where: "server",
     action: function(){
-      console.log('################################################');
-      console.log(this.request.method);
-      console.log(this.request.headers);
-      console.log('this.params.id: ' + this.params.id);
+      debugLogging && console.log('################################################');
+      debugLogging && console.log(this.request.method);
+      debugLogging && console.log(this.request.headers);
+      debugLogging && console.log('this.params.id: ' + this.params.id);
 
-      console.log('------------------------------');
-      console.log(this.request.body);
-      console.log('------------------------------');
+      debugLogging && console.log('------------------------------');
+      debugLogging && console.log(this.request.body);
+      debugLogging && console.log('------------------------------');
 
       this.response.statusCode = 200;
       this.response.setHeader("Content-Type", "application/json");
@@ -150,14 +156,14 @@ Router.map(function () {
   this.route("updateReadingRoute", {path: "/reading/update/:id",
     where: "server",
     action: function(){
-      console.log('################################################');
-      console.log(this.request.method);
-      console.log(this.request.headers);
-      console.log('this.params.id: ' + this.params.id);
+      debugLogging && console.log('################################################');
+      debugLogging && console.log(this.request.method);
+      debugLogging && console.log(this.request.headers);
+      debugLogging && console.log('this.params.id: ' + this.params.id);
 
-      console.log('------------------------------');
-      console.log(this.request.body);
-      console.log('------------------------------');
+      debugLogging && console.log('------------------------------');
+      debugLogging && console.log(this.request.body);
+      debugLogging && console.log('------------------------------');
 
       this.response.statusCode = 200;
       this.response.setHeader("Content-Type", "application/json");

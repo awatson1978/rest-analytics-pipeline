@@ -1,19 +1,5 @@
-renderDailyInteractionsLineChart = function(){
-  console.log('renderDailyInteractionsLineChart');
-
-  // var nullrecord = [
-  //   {x:0, y:0}
-  // ];
-
-  //if(Meteor.user()){
-    //var campaignRecord = Campaigns.findOne({_id: Meteor.user().profile.selected_campaign_id });
-    //console.log('campaignRecord: ' + campaignRecord);
-
-    //var totalData = DailyStats.find({},{sort:{dateIncrement: 'asc'}}).fetch();
-    //var totalData = DailyStats.find({},{sort: {dateIncrement: -1}}).fetch();
-    //var firefoxData = DailyStats.find({},{sort:{dateIncrement: -1}}).fetch();
-    //var safariData = DailyStats.find({},{sort:{dateIncrement: -1}}).fetch();
-
+temperatureLineGraph = function(){
+  console.log('temperatureLineGraph');
 
     var data = [{
       color: "#45b76f",
@@ -25,12 +11,12 @@ renderDailyInteractionsLineChart = function(){
     var chart;
     nv.addGraph({
       generate: function(){
-        console.log('generating dailyInteractionsLineChart...');
+        console.log('generating temperatureLineChart...');
 
-        var width = $('#dailyInteractionsLineChart').width();
+        var width = $('#temperatureLineChart').width();
 
-        $('#dailyInteractionsLineChart').height($('#dailyInteractionsLineChartPanel').height() - 20);
-        var height = $('#dailyInteractionsLineChart').height();
+        $('#temperatureLineChart').height($('#temperatureLineChartPanel').height() - 20);
+        var height = $('#temperatureLineChart').height();
         if(height > 380){
           height = 380;
         }
@@ -53,7 +39,7 @@ renderDailyInteractionsLineChart = function(){
         chart.yAxis
           .tickFormat(d3.format(''));
 
-        d3.select('#dailyInteractionsLineChart svg')
+        d3.select('#temperatureLineChart svg')
           .attr('width', width)
           .attr('height', height)
           .datum(data)
@@ -67,8 +53,8 @@ renderDailyInteractionsLineChart = function(){
       },
       callback: function(graph){
         window.onresize = function () {
-          var width = $('#dailyInteractionsLineChart').width();
-          var height =  $('#dailyInteractionsLineChart').height();
+          var width = $('#temperatureLineChart').width();
+          var height =  $('#temperatureLineChart').height();
           var margin = graph.margin();
 
           if (width < margin.left + margin.right + 20){
@@ -86,7 +72,7 @@ renderDailyInteractionsLineChart = function(){
 
           graph.width(width).height(height);
 
-          d3.select('#dailyInteractionsLineChart svg')
+          d3.select('#temperatureLineChart svg')
             .attr('width', width)
             .attr('height', height)
             .call(graph);

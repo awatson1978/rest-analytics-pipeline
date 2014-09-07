@@ -1,8 +1,3 @@
-//BrowserPolicy.framing.allowAll();
-//BrowserPolicy.content.allowSameOriginForAll();
-//BrowserPolicy.content.allowDataUrlForAll();
-//BrowserPolicy.content.allowDataUrlForAll("http://localhost");
-
 initializeDatabase = false;
 
 Meteor.startup(function(){
@@ -18,6 +13,7 @@ Meteor.startup(function(){
     });
   }
 
+  // http://www.json-generator.com/
   if((Readings.find().count() == 0) && initializeDatabase) {
     var data = [
       {

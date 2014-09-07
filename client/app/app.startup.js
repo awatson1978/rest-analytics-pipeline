@@ -5,5 +5,3 @@ Meteor.startup(function(){
     Session.set("resize", new Date());
   });
 });
-
-

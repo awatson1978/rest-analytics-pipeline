@@ -9,11 +9,11 @@ Router.map(function(){
   this.route('dashboardPageRoute', {
     path: '/',
     template: 'dashboardPage',
-    waitOn: function(){
-      Meteor.subscribe ('readingsRea');
-    },
+    // waitOn: function(){
+    //   Meteor.subscribe ('readings', Session.get('groveId'));
+    // },
     onAfterAction: function() {
-      renderDailyInteractionsLineChart();
+      temperatureLineGraph();
     }
   });
 });
@@ -33,30 +33,32 @@ Template.dashboardPage.helpers({
     }
   },
   resized: function() {
-    renderDailyInteractionsLineChart();
+    // these functions get run as side effects
+    temperatureLineChart();
+    // andOtherFunctions();
     return Session.get('resize');
   },
   destroyed: function() {
     this.handle && this.handle.stop();
-    $('#dailyInteractionsLineChart').html('<svg id="dailyInteractionsLineChartCanvas"></svg>');
+    $('#temperatureLineChart').html('<svg id="temperatureLineChartCanvas"></svg>');
   }
 });
 
 Template.dashboardPage.events({
-  'click #dataSubmitButton':function(){
-    var date = moment($('#dateInput').val(), "MM-DD-YYYY");
-
-    var dataObject = {
-      date: $('#dateInput').val(),
-      daily_total: $('#valueInput').val(),
-      dateIncrement: date.format('YYYYMMDD')
-    }
-    if(dataObject.daily_total < 0){
-      alert('Value must be above 0 and below 100!');
-    }else if(dataObject.daily_total > 100){
-      alert('Value must be above 0 and below 100!');
-    }else{
-      Readings.insert(dataObject);
-    }
-  }
+  // 'click #dataSubmitButton':function(){
+  //   var date = moment($('#dateInput').val(), "MM-DD-YYYY");
+  //
+  //   var dataObject = {
+  //     date: $('#dateInput').val(),
+  //     daily_total: $('#valueInput').val(),
+  //     dateIncrement: date.format('YYYYMMDD')
+  //   }
+  //   if(dataObject.daily_total < 0){
+  //     alert('Value must be above 0 and below 100!');
+  //   }else if(dataObject.daily_total > 100){
+  //     alert('Value must be above 0 and below 100!');
+  //   }else{
+  //     Readings.insert(dataObject);
+  //   }
+  // }
 });
