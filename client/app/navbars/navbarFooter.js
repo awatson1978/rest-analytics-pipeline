@@ -48,3 +48,10 @@ Template.navbarFooter.helpers({
     }
   }
 });
+
+
+Template.navbarFooter.events({
+  "click #addRandomValue": function(event, template){
+    alert('foo!'); 
+  }
+});

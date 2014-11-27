@@ -6,10 +6,11 @@ Router.configure({
   layoutTemplate: 'appLayout',
 });
 
-
-Router.map(function(){
- this.route('dashboardPageRoute', {
-   path: '/',
-   template:"dashboardPage"
- });
+Router.route('/', {
+  action:function(){
+    this.render('dashboardPage');
+  },
+  onAfterAction: function() {
+    dataLineGraph();
+  }
 });

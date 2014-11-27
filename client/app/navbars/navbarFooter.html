@@ -1,16 +1,49 @@
 <template name="navbarFooter">
-  <nav id="navbarFooterNav" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <nav id="navbarFooter" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
     <div class="container-fluid">
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
+          <li id="addValueButton"><a href="/">Add Value</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
           {{#with getConfigurationRecord}}
-            <li><a href="#">total: {{getTotalCount}}</a></li>
-            <li><a href="#">find: {{getListCount}}</a></li>
-            <li><a href="#">findOne: {{getGetCount}}</a></li>
-            <li><a href="#">insert: {{getInsertCount}}</a></li>
-            <li><a href="#">update: {{getUpdateCount}}</a></li>
-            <li><a href="#">remove: {{getDeleteCount}}</a></li>
+            <li>
+              <a href="#">
+              <span id="totalLabel">total:</span>
+              <span id="totalText">{{getTotalCount}}</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span id="findLabel">find: </span>
+                <span id="findText">{{getListCount}}</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span id="findOneLabel">findOne:</span>
+                <span id="findOneText">{{getGetCount}}</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span id="insertLabel">insert:</span>
+                <span id="insertText">{{getInsertCount}}</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span id="updateLabel">update:</span>
+                <span id="updateText">{{getUpdateCount}}</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span id="removeLabel">remove:</span>
+                <span id="removeText">{{getDeleteCount}}</span>
+              </a>
+            </li>
           {{/with}}
         </ul>
       </div>

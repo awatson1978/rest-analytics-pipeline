@@ -1,3 +1,3 @@
-// Template.navbarHeader.events({
+Template.navbarHeader.events({
 
-// });
+});

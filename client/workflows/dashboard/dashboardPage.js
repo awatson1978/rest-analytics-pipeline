@@ -3,28 +3,12 @@ Session.setDefault('selected_campaign_record', false);
 
 
 //------------------------------------------------
-// ROUTING
-
-Router.map(function(){
-  this.route('dashboardPageRoute', {
-    path: '/',
-    template: 'dashboardPage',
-    // waitOn: function(){
-    //   Meteor.subscribe ('readings', Session.get('groveId'));
-    // },
-    onAfterAction: function() {
-      temperatureLineGraph();
-    }
-  });
-});
-
-//------------------------------------------------
 // HELPERS
 
 Template.dashboardPage.helpers({
   getMostRecentDate:function(){
+    
     var record = Readings.find({},{sort:{dateIncrement: -1}}).fetch()[0];
-
     if(record){
       var date = moment(record.date);
       return date.add('days',1).format('MM-DD-YYYY');
@@ -33,32 +17,15 @@ Template.dashboardPage.helpers({
     }
   },
   resized: function() {
-    // these functions get run as side effects
-    temperatureLineChart();
-    // andOtherFunctions();
+    // this functions get run as side effects
+    dataLineGraph();
+
+    // the resized helper function gets rerun when the reactive
+    // resize variable gets updated
     return Session.get('resize');
   },
   destroyed: function() {
     this.handle && this.handle.stop();
-    $('#temperatureLineChart').html('<svg id="temperatureLineChartCanvas"></svg>');
+    $('#dataLineChart').html('<svg id="dataLineChartCanvas"></svg>');
   }
-});
-
-Template.dashboardPage.events({
-  // 'click #dataSubmitButton':function(){
-  //   var date = moment($('#dateInput').val(), "MM-DD-YYYY");
-  //
-  //   var dataObject = {
-  //     date: $('#dateInput').val(),
-  //     daily_total: $('#valueInput').val(),
-  //     dateIncrement: date.format('YYYYMMDD')
-  //   }
-  //   if(dataObject.daily_total < 0){
-  //     alert('Value must be above 0 and below 100!');
-  //   }else if(dataObject.daily_total > 100){
-  //     alert('Value must be above 0 and below 100!');
-  //   }else{
-  //     Readings.insert(dataObject);
-  //   }
-  // }
 });

@@ -1,24 +1,24 @@
 
 <template name="databaseCollection">
-  <div class="panel panel-default panel-success">
+  <div id="dataTabelPanel" class="panel panel-default panel-success">
     <div class="panel-heading">
       Last 10 Readings
     </div>
     <div class="panel-body">
-      <table class="table table-bordered">
+      <table id="dataTable" class="table table-bordered">
         <thead class="bold">
-        <td>
+        <td id="dataTableIdColumn">
           ID
         </td>
-        <td>
+        <td id="dataTableTimestampColumn">
           Timestamp
         </td>
-        <td>
+        <td id="dataTableValueColumn">
           Value
         </td>
-        <td>
+        <!-- <td>
           Sensor Type
-        </td>
+        </td> -->
         </thead>
         <tbody>
         {{#each readings }}
@@ -32,9 +32,9 @@
           <td width="25%">
             {{ value}}
           </td>
-          <td width="25%">
+          <!-- <td width="25%">
             {{ sensorType }}
-          </td>
+          </td> -->
         </tr>
         {{/each}}
         </tbody>
