@@ -20,10 +20,18 @@ sudo meteor
 #### Running Acceptance Tests
 
 ````sh
-# In the same way that we run 'meteor mongo' in a separate terminal while our application is already running,
-# we want to open up a new terminal, and run nightwatch
+# optional:  you may want to reset your application data
+terminal-a$ meteor reset
+
+# run your application as usual
+terminal-a$ meteor
+
+# install the nightwatch script
 terminal-b$ cp .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/launch_nightwatch_from_app_root.sh run_nightwatch.sh
 terminal-b$ sudo chmod +x run_nightwatch.sh
+
+
+# run nightwatch 
 terminal-b$ sudo ./run_nightwatch.sh
 
 # you might want to do something clever like pass in arguments and run specific tests
