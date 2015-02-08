@@ -8,9 +8,9 @@ autopublish
 insecure
 less
 
-mrt:bootstrap-3
 mrt:moment
 iron:router
+nemo64:bootstrap
+natestrauser:font-awesome
 d3js:d3
 clinical:nightwatch
-
