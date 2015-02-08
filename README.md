@@ -2,6 +2,7 @@
 
 Real-time analytics pipeline for sensors via a RESTful interface.  
 
+![travis-build](https://travis-ci.org/awatson1978/rest-analytics-pipeline.svg?branch=master)  
 
 ==========================
 #### Installation
@@ -30,7 +31,7 @@ terminal-a$ meteor
 terminal-b$ cp .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/launch_nightwatch_from_app_root.sh run_nightwatch.sh
 terminal-b$ sudo chmod +x run_nightwatch.sh
 
-# run nightwatch 
+# run nightwatch
 terminal-b$ sudo ./run_nightwatch.sh
 
 # you might want to do something clever like pass in arguments and run specific tests
