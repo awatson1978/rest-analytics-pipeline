@@ -14,7 +14,7 @@ git clone https://github.com/grovelabs/rest-analytics-pipeline.git
 
 # And then running it...
 cd rest-analytics-pipeline
-sudo meteor
+meteor
 ````
 
 ==========================
@@ -24,18 +24,14 @@ sudo meteor
 # optional:  you may want to reset your application data
 terminal-a$ meteor reset
 
+# optional: install starrynight utility (test runner)
+terminal-a$ npm install starrynight -g
+
 # run your application as usual
 terminal-a$ meteor
 
-# install the nightwatch script
-terminal-b$ cp .meteor/local/build/programs/server/assets/packages/clinical_nightwatch/launch_nightwatch_from_app_root.sh run_nightwatch.sh
-terminal-b$ sudo chmod +x run_nightwatch.sh
-
 # run nightwatch
-terminal-b$ sudo ./run_nightwatch.sh
-
-# you might want to do something clever like pass in arguments and run specific tests
-terminal-b$ sudo ./run_nightwatch.sh -t tests/nightwatch/analytics.walkthrough.js
+terminal-b$ starrynight run-framework nightwatch
 ````
 
 ==========================
